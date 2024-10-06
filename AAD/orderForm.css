@@ -1,0 +1,74 @@
+#successBanner {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+    position: relative;
+    top: -190px;
+    bottom: 0;
+    right: 0;
+    left: 220px;
+    /*width: 180px;*/
+    height: 75px;
+}
+
+#notSuccessBanner {
+    background-color: red;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+    position: relative;
+    top: -190px;
+    bottom: 0;
+    right: 0;
+    left: 220px;
+    /*width: 180px;*/
+    height: 75px;
+}
+.hidden {
+    display: none;
+}
+
+#deleteBanner {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+    position: relative;
+    top: -190px;
+    bottom: 0;
+    right: 0;
+    left: 220px;
+    /*width: 180px;*/
+    height: 75px;
+}
+
+#placeOrderBtn{
+    width: 130px;
+    position: absolute;
+    top: 220px;
+    left: 40px;
+}
+
+#addToCartBtn{
+    position: absolute;
+    top: 220px;
+    left: 60px;
+}
+
+table{
+    position: relative;
+    top: 20px;
+}
+
+.form-control{
+    width: 1000px;
+    height: 25px;
+    font-size: 5px;
+}
