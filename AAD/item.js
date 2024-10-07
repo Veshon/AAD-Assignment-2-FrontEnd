@@ -103,9 +103,9 @@ $(document).ready(function () {
         console.log(priceE);
 
         const itemData = {
-            ItemCode: codeE,
-            ItemDesc: descE,
-            ItemQty: qtyE,
+            itemCode: codeE,
+            itemDesc: descE,
+            itemQty: qtyE,
             price: priceE
         };
 
