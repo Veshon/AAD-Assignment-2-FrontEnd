@@ -92,10 +92,10 @@ $(document).ready(function () {
     $("#update").click(function() {
         event.preventDefault();
 
-        let idE = $("#id").val();
-        let nameE = $("#name").val();
-        let addressE = $("#address").val();
-        let mobileE = $("#mobile").val();
+        let idE = $("#cusId").val();
+        let nameE = $("#cusName").val();
+        let addressE = $("#cusAddress").val();
+        let mobileE = $("#cusTeleNo").val();
 
         console.log(idE);
         console.log(nameE);
@@ -103,10 +103,10 @@ $(document).ready(function () {
         console.log(mobileE);
 
         const customerData = {
-            id:idE,
-            name:nameE,
-            address:addressE,
-            mobile:mobileE
+            cusId:idE,
+            cusName:nameE,
+            cusAddress:addressE,
+            cusTeleNo:mobileE
         };
 
         console.log(customerData)
@@ -115,7 +115,7 @@ $(document).ready(function () {
         console.log(customerJSON)
 
         $.ajax({
-            url: "http://localhost:8080/customer?c_id="+idE,
+            url: "http://localhost:8080/aad/api/v1/customers/"+idE,
             type: "PUT",
             data: customerJSON,
             headers: { "Content-Type": "application/json" },
