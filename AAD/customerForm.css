@@ -60,6 +60,23 @@
     /*width: 180px;*/
     height: 75px;
 }
+
+#notSuccessBannerSave {
+    background-color: red;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+    position: relative;
+    top: -190px;
+    bottom: 0;
+    right: 0;
+    left: 220px;
+    /*width: 180px;*/
+    height: 75px;
+}
+
 .hidden {
     display: none;
 }

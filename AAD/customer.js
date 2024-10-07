@@ -40,9 +40,9 @@ $(document).ready(function () {
             error: (res) => {
                 console.error(res);
                 notSuccessBanner.classList.remove('hidden');
-                notSuccessBanner.style.display = 'block';
+                notSuccessBannerSave.style.display = 'block';
                 setTimeout(function() {
-                    notSuccessBanner.style.display = 'none';
+                    notSuccessBannerSave.style.display = 'none';
                 }, 3000);
             }
         })

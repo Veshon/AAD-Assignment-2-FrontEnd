@@ -2,9 +2,9 @@ $(document).ready(function () {
     $("#save").click(function () {
         event.preventDefault();
 
-        let codeE = $("#code").val();
-        let descE = $("#desc").val();
-        let qtyE = $("#qty").val();
+        let codeE = $("#ItemCode").val();
+        let descE = $("#ItemDesc").val();
+        let qtyE = $("#ItemQty").val();
         let priceE = $("#price").val();
 
         console.log(codeE);
@@ -13,9 +13,9 @@ $(document).ready(function () {
         console.log(priceE);
 
         const itemData = {
-            code: codeE,
-            description: descE,
-            qty: qtyE,
+            itemCode: codeE,
+            itemDesc: descE,
+            itemQty: qtyE,
             price: priceE
         };
 
@@ -25,7 +25,7 @@ $(document).ready(function () {
         console.log(itemJSON)
 
         $.ajax({
-            url: "http://localhost:8080/item",
+            url: "http://localhost:8080/aad/api/v1/items",
             type: "POST",
             data: itemJSON,
             headers: {"Content-Type": "application/json"},
@@ -52,7 +52,7 @@ $(document).ready(function () {
     $("#delete").click(function(event) {
         event.preventDefault();
 
-        let codeE = $("#code").val();
+        let codeE = $("#ItemCode").val();
 
         console.log(codeE);
 
@@ -66,7 +66,7 @@ $(document).ready(function () {
         console.log(itemJSON);
 
         $.ajax({
-            url: "http://localhost:8080/item?code=" + codeE,
+            url: "http://localhost:8080/aad/api/v1/items/" + codeE,
             type: "DELETE",
             headers: { "Content-Type": "application/json" },
             success: (res) => {
@@ -92,9 +92,9 @@ $(document).ready(function () {
     $("#update").click(function() {
         event.preventDefault();
 
-        let codeE = $("#code").val();
-        let descE = $("#desc").val();
-        let qtyE = $("#qty").val();
+        let codeE = $("#ItemCode").val();
+        let descE = $("#ItemDesc").val();
+        let qtyE = $("#ItemQty").val();
         let priceE = $("#price").val();
 
         console.log(codeE);
@@ -103,9 +103,9 @@ $(document).ready(function () {
         console.log(priceE);
 
         const itemData = {
-            code: codeE,
-            description: descE,
-            qty: qtyE,
+            ItemCode: codeE,
+            ItemDesc: descE,
+            ItemQty: qtyE,
             price: priceE
         };
 
@@ -115,7 +115,7 @@ $(document).ready(function () {
         console.log(itemJSON)
 
         $.ajax({
-            url: "http://localhost:8080/item?code="+codeE,
+            url: "http://localhost:8080/aad/api/v1/items/"+codeE,
             type: "PUT",
             data: itemJSON,
             headers: { "Content-Type": "application/json" },
