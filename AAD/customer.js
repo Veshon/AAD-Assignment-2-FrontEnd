@@ -52,12 +52,12 @@ $(document).ready(function () {
     $("#delete").click(function(event) {
         event.preventDefault();
 
-        let idE = $("#id").val();
+        let idE = $("#cusId").val();
 
         console.log(idE);
 
         const customerData = {
-            id: idE,
+            cusId: idE,
         };
 
         console.log(customerData);
@@ -66,7 +66,7 @@ $(document).ready(function () {
         console.log(customerJSON);
 
         $.ajax({
-            url: "http://localhost:8080/customer?c_id=" + idE,
+            url: "http://localhost:8080/aad/api/v1/customers/" + idE,
             type: "DELETE",
             headers: { "Content-Type": "application/json" },
             success: (res) => {
