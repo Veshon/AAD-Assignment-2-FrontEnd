@@ -57,7 +57,7 @@ $(document).ready(function () {
         console.log(codeE);
 
         const itemData = {
-            code: codeE,
+            itemCode: codeE,
         };
 
         console.log(itemData);
