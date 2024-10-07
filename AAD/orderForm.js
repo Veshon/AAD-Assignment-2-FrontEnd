@@ -62,4 +62,44 @@ $(document).ready(function () {
             }
         })
     })
+
+    ///////////////////////////////////////Delete/////////////////////////////////////////////
+    $("#deleteBtn").click(function(event) {
+        event.preventDefault();
+
+        let orderIdE = $("#oId").val();
+
+        console.log(orderIdE);
+
+        const orderData = {
+            orderId: orderIdE,
+        };
+
+        console.log(orderIdE);
+
+        const orderJSON = JSON.stringify(orderData);
+        console.log(orderJSON);
+
+        $.ajax({
+            url: "http://localhost:8080/aad/api/v1/orders/" + orderIdE,
+            type: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            success: (res) => {
+                console.log(JSON.stringify(res));
+                deleteBanner.classList.remove('hidden');
+                deleteBanner.style.display = 'block';
+                setTimeout(function() {
+                    deleteBanner.style.display = 'none';
+                }, 3000);
+            },
+            error: (res) => {
+                console.error(res);
+                notSuccessBanner.classList.remove('hidden');
+                notSuccessBanner.style.display = 'block';
+                setTimeout(function() {
+                    notSuccessBanner.style.display = 'none';
+                }, 3000);
+            }
+        });
+    });
 })
