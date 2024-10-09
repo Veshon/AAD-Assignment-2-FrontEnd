@@ -21,12 +21,13 @@
 
   <div class="mb-3">
     <label for="cusId" class="form-label">Customer ID</label>
-    <input type="text" class="form-control" id="cusId"></input>
+    <select type="text" class="form-control" id="cusId"><option value="">Select Customer</option>
+    </select>
   </div>
 
   <div class="mb-3">
     <label for="itemCode" class="form-label">Item Code</label>
-    <input type="text" class="form-control" id="itemCode"></input>
+    <select type="text" class="form-control" id="itemCode"><option value="">Select Item</option></select>
   </div>
 
 </form>
@@ -108,6 +109,38 @@
 <button style="position:fixed; top: 0px; border-radius: 100%" id="homeBtn" type="button" class="btn btn-light">
     <a href="index.html" style="text-decoration: none"><img style="width: 30px; height: 30px;" src="assets/images/icons8-home-48.png"></a>
 </button>
+
+<!--<script>-->
+<!--    async function loadCustomers() {-->
+<!--        try {-->
+<!--            // Fetch customer data from the Spring MVC endpoint-->
+<!--            const response = await fetch('http://localhost:8080/aad/api/v1/customers');-->
+<!--            const customers = await response.json();-->
+
+<!--            // Get the select element by its ID-->
+<!--            const customerSelect = document.getElementById('cusId');-->
+
+<!--            // Populate the select element with customer IDs and names-->
+<!--            customers.forEach(customer => {-->
+<!--                const option = document.createElement('option');-->
+<!--                option.value = customer.cusId; // Set the value to cusId-->
+<!--                option.text = `ID: ${customer.cusId} - Name: ${customer.cusName}`; // Display both cusId and cusName-->
+<!--                customerSelect.add(option);-->
+<!--                console.log(customer.cusName);-->
+<!--                document.getElementById('cusName').value = customer.cusName;-->
+<!--      /*          const selectedValue = document.getElementById('cusId').value;-->
+<!--                // Set the input field value to the selected value-->
+<!--                document.getElementById('cusName').value = selectedValue;*/-->
+<!--            });-->
+
+<!--        } catch (error) {-->
+<!--            console.error('Error fetching customer data:', error);-->
+<!--        }-->
+<!--    }-->
+
+<!--    // Call loadCustomers when the page is loaded-->
+<!--    window.onload = loadCustomers;-->
+<!--</script>-->
 
 </body>
 </html>

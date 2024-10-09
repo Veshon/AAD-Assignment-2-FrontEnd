@@ -1,4 +1,53 @@
+async function loadCustomers() {
+    try {
+        // Fetch customer data from the Spring MVC endpoint
+        const response = await fetch('http://localhost:8080/aad/api/v1/customers');
+        const customers = await response.json();
+
+        // Get the select element by its ID
+        const customerSelect = document.getElementById('cusId');
+
+        // Populate the select element with customer IDs and names
+        customers.forEach(customer => {
+            const option = document.createElement('option');
+            option.value = customer.cusId; // Set the value to cusId
+            option.text = `ID: ${customer.cusId} - Name: ${customer.cusName}`; // Display both cusId and cusName
+            customerSelect.add(option);
+        });
+    } catch (error) {
+        console.error('Error fetching customer data:', error);
+    }
+}
+
+// Call loadCustomers when the page is loaded
+
+async function loadItems() {
+    try {
+        // Fetch customer data from the Spring MVC endpoint
+        const response = await fetch('http://localhost:8080/aad/api/v1/items');
+        const items = await response.json();
+
+        // Get the select element by its ID
+        const customerSelectN = document.getElementById('itemCode');
+
+        // Populate the select element with customer IDs and names
+        items.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.itemCode; // Set the value to cusId
+            option.text = `CODE: ${item.itemCode} - Desc: ${item.itemDesc}`; // Display both cusId and cusName
+            customerSelectN.add(option);
+        });
+    } catch (error) {
+        console.error('Error fetching item data:', error);
+    }
+}
+
+// Call loadCustomers when the page is loaded
+window.onload = loadItems();
+window.onload = loadCustomers;
+
 $(document).ready(function () {
+
     $("#addToCartBtn").click(function () {
         event.preventDefault();
 
