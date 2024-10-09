@@ -54,7 +54,7 @@ $(document).ready(function () {
             },
             error: (res) => {
                 console.error(res);
-                notSuccessBanner.classList.remove('hidden');
+                notSuccessBannerSave.classList.remove('hidden');
                 notSuccessBannerSave.style.display = 'block';
                 setTimeout(function () {
                     notSuccessBannerSave.style.display = 'none';
