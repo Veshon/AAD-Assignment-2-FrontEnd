@@ -13,13 +13,13 @@ async function loadCustomers() {
             option.value = customer.cusId; // Set the value to cusId
             option.text = `ID: ${customer.cusId} - Name: ${customer.cusName}`; // Display both cusId and cusName
             customerSelect.add(option);
+            // console.log(customer.cusName, customer.cusId)
         });
     } catch (error) {
         console.error('Error fetching customer data:', error);
     }
 }
 
-// Call loadCustomers when the page is loaded
 
 async function loadItems() {
     try {
@@ -42,9 +42,68 @@ async function loadItems() {
     }
 }
 
+async function loadCusNames() {
+    try {
+        // Fetch customer data from the Spring MVC endpoint
+        const response = await fetch('http://localhost:8080/aad/api/v1/customers');
+        const cusName = await response.json();
+
+        // Get the select element by its ID
+        const customerSelectN = document.getElementById('cusName');
+
+        // Populate the select element with customer IDs and names
+        cusName.forEach(cusData => {
+            const option = document.createElement('option');
+            option.value = cusData.cusName; // Set the value to cusId
+            option.text = `Name: ${cusData.cusName}`; // Display cusName
+            customerSelectN.add(option);
+            console.log(cusData.cusName)
+        });
+    } catch (error) {
+        console.error('Error fetching item data:', error);
+    }
+}
+
+async function fetchCustomerName() {
+    // Get the cusId from the input field
+    var cusId = document.getElementById("cusId").value;
+    console.log(cusId);
+
+    /*// Ensure cusId is not empty
+    if (!cusId) {
+        console.error("Customer ID is required");
+        return;
+    }
+
+    // Create an XMLHttpRequest to fetch customer name
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost:8080/aad/api/v1/customers/" + cusId, true);
+
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log("Customer data:", xhr.responseText);
+            // Optionally, update the UI with the customer name
+            document.getElementById("cusName").value = xhr.responseText;
+        } else {
+            console.error("Error fetching customer name. Status:", xhr.status);
+        }
+    };
+
+    xhr.onerror = function() {
+        console.error("Request failed.");
+    };
+
+    xhr.send();*/
+}
+
 // Call loadCustomers when the page is loaded
 window.onload = loadItems();
+window.onload = loadCusNames();
 window.onload = loadCustomers;
+// fetchCustomerName();
+
+
+
 
 $(document).ready(function () {
 
